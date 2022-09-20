@@ -1,2 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Main");
+
+using f_fizzbuzz_app;
+
+var fizzBuzz = new Fizzbuzz();
+fizzBuzz.PrintSequence();
