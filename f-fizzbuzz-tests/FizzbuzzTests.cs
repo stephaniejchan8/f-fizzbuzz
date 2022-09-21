@@ -6,8 +6,29 @@ namespace f_fizzbuzz_tests;
 
 public class FizzbuzzTests
 {
-    Fizzbuzz fizzbuzz = new Fizzbuzz();
+    Fizzbuzz _fizzbuzz = new Fizzbuzz();
+    // _fizzbuzz.SequenceSize = 100; 
 
+
+    [Fact]
+    public void GetSequence_ShouldReturnFizzOnMultiplesOf3AndBuzzOnMultiplesOf5AndFizzbuzzOnMultiplesOf15()
+    {
+        // ARRANGE 
+        _fizzbuzz.SequenceSize = 20;
+        var expected = new string[20]
+        {
+            "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz", "16", "17", "Fizz",
+            "19", "Buzz"
+        };
+
+
+        // ACT
+        var actual = _fizzbuzz.GetSequence();
+
+        // ASSERT
+        Assert.Equal(expected, actual);
+    }
+}
     // [Fact]
     // public void GetSequence_ShouldReturn1to20()
     // {
@@ -23,22 +44,3 @@ public class FizzbuzzTests
     //     // ASSERT
     //     Assert.Equal(expected, actual);
     // }
-
-    [Fact]
-    public void GetSequence_ShouldReturnFizzOnMultiplesOf3AndBuzzOnMultiplesOf5AndFizzbuzzOnMultiplesOf15()
-    {
-        // ARRANGE 
-        var expected = new string[20]
-        {
-            "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz", "16", "17", "Fizz",
-            "19", "Buzz"
-        };
-
-
-        // ACT
-        var actual = fizzbuzz.GetSequence();
-
-        // ASSERT
-        Assert.Equal(expected, actual);
-    }
-}

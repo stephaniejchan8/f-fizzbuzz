@@ -2,5 +2,4 @@
 
 using f_fizzbuzz_app;
 
-var fizzBuzz = new Fizzbuzz();
-fizzBuzz.PrintSequence();
+Runner.Run();
