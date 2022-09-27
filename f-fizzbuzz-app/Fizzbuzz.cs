@@ -2,12 +2,19 @@ namespace f_fizzbuzz_app;
 
 public class Fizzbuzz
 {
-    public int SequenceSize { get; set; }
-    
-    public string[] GetSequence()
+    // public int SequenceSize { get; set; }
+
+    // Experimenting with constructors:
+    // public Fizzbuzz(int sequenceSize)sequenceSize = sequenceSize;
+    // }
+    //
+    // public Fizzbuzz()
+    // {
+    // }
+    public string[] GetSequence(int sequenceSize)
     {
-        var fizzBuzzArray = new string [SequenceSize];
-        for (var i = 0; i < SequenceSize; i++)
+        var fizzBuzzArray = new string [sequenceSize];
+        for (var i = 0; i < sequenceSize; i++)
         {
             var currentNumber = i + 1;
             
@@ -23,7 +30,7 @@ public class Fizzbuzz
             }
             else
             {
-                fizzBuzzArray[i] = $"{i + 1}";
+                fizzBuzzArray[i] = $"{currentNumber}";
             }
         }
         return fizzBuzzArray;

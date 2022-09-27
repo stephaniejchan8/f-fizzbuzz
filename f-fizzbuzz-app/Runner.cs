@@ -1,34 +1,38 @@
 namespace f_fizzbuzz_app;
 
-public static class Runner
+public class Runner
 {
-    public static void Run()
+    public void RunFizzbuzz()
     {
         var fizzbuzz = new Fizzbuzz();
-        
+
         var inputtedSequenceSize = RequestSizeOfSequence();
-        
-        if (inputtedSequenceSize != 0)
+        while (!IsValidSize((inputtedSequenceSize)))
         {
-            fizzbuzz.SequenceSize = inputtedSequenceSize;
-            var fizzBuzzArray = fizzbuzz.GetSequence();
-            PrintSequence(fizzBuzzArray);
+            Console.WriteLine("Please enter the number of elements you would like to print.");
+            inputtedSequenceSize = RequestSizeOfSequence();
         }
-        else
-        {
-            Console.WriteLine("Please enter a number of elements you would like to print.");
-        }
+
+        var sequenceSize = Int32.Parse(inputtedSequenceSize);
+        var fizzBuzzArray = fizzbuzz.GetSequence(sequenceSize);
+        PrintSequence(fizzBuzzArray);
     }
 
-    private static int RequestSizeOfSequence()
+    private static string RequestSizeOfSequence()
     {
         Console.WriteLine("How many elements would you like to FizzBuzz?");
-        var sequenceSizeString = Console.ReadLine();
+        return Console.ReadLine();
+    }
 
-        int sequenceSize;
-        int.TryParse(sequenceSizeString, out sequenceSize);
-        
-        return sequenceSize;
+    private static bool IsValidSize(string userInput)
+    {
+        return int.TryParse(userInput, out _);
+
+        // if (int.TryParse(sequenceSizeString, out var sequenceSize))
+        //     {
+        //         return sequenceSize;
+        //     }
+        //     return 0;
     }
 
     private static void PrintSequence(string[] array)

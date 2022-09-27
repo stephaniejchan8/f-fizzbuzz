@@ -2,4 +2,5 @@
 
 using f_fizzbuzz_app;
 
-Runner.Run();
+var runner = new Runner();
+runner.RunFizzbuzz();
